@@ -27,11 +27,9 @@ class BasicSalaryController extends Controller
             'user_id' => 'required',
         ]);
 
-        $user = $request->user();
-
         $basicSalary = new BasicSalary();
         $basicSalary->company_id = 1;
-        $basicSalary->user_id = $request->user_id;
+        $basicSalary->user_id = $request->user()->id;
         $basicSalary->basic_salary = $request->basic_salary;
         $basicSalary->save();
 

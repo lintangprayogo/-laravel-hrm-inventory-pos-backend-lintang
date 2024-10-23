@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\LeaveType;
 use Illuminate\Database\Seeder;
 
 class LeaveTypeSeeder extends Seeder
@@ -13,5 +13,6 @@ class LeaveTypeSeeder extends Seeder
     public function run(): void
     {
         //
+        LeaveType::factory(20)->create();
     }
 }
