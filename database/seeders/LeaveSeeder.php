@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Leave;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Leave;
 
 class LeaveSeeder extends Seeder
 {
@@ -13,14 +12,18 @@ class LeaveSeeder extends Seeder
      */
     public function run(): void
     {
-        Leave::Create([
+        Leave::create([
             'user_id' => 1,
-            'created_by' => 1,
-            'company_id'=>1,
             'leave_type_id' => 1,
-            'start_date' => "2024-12-12",
-            'end_date' => "2024-12-13",
-            'total_days' => 1
+            'start_date' => '2024-08-01',
+            'end_date' => '2024-08-03',
+            'is_half_day' => 0,
+            'total_days' => 3,
+            'is_paid' => 1,
+            'reason' => 'Sick',
+            'status' => 'pending',
+            'company_id' => 1,
+            'created_by'=>1
         ]);
     }
 }
