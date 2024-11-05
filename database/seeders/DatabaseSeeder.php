@@ -18,22 +18,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'lintang prayogo',
-            'email' => 'lintangprayogo12@gmail.com',
-            'password' => Hash::make("12345678")
-        ]);
-
-        User::factory()->create([
-            'name' => 'Maya User',
-            'email' => 'maya@fic20.com',
-            'password' => Hash::make('12345678'),
-        ]);
 
 
         $this->call([
             CompanySeeder::class,
             RoleSeeder::class,
+            UserSeeder::class,
             PermissionSeeder::class,
             PermissionRoleSeeder::class,
             DepartmentSeeder::class,
