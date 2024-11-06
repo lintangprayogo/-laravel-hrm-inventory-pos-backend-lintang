@@ -26,21 +26,22 @@ class DepartmentController extends Controller
             "name" => "required"
         ]);
 
-        $role =  new  Department();
-        $role->company_id = 1;
-        $role->name =  $request->name;
-        $role->save();
+        $department =  new  Department();
+        $department->company_id = 1;
+        $department->name =  $request->name;
+        $department->created_by = $request->user()->id;
+        $department->save();
 
         return Response([
             "message" => 'Department created',
-            "data" => $role
+            "data" => $department
         ], 201);
     }
 
 
     public function show($id)
     {
-        $department =  Department::find("id", $id);
+        $department =  Department::find($id);
         if (!$department) {
             return Response([
                 "message" => 'Department Not Found'
@@ -55,10 +56,10 @@ class DepartmentController extends Controller
 
     public function update(Request $request)
     {
-        $department =  Department::find("id", $request->role_id);
+        $department =  Department::find( $request->id);
         if (!$department) {
             return Response([
-                "message" => 'Role Not Found'
+                "message" => 'Department Not Found'
             ], 404);
         }
         $department->name =  $request->name;
@@ -73,14 +74,14 @@ class DepartmentController extends Controller
 
     public function destroy($id)
     {
-        $department =  Department::find("id", $id);
+        $department =  Department::find($id);
         if (!$department) {
             return Response([
                 "message" => 'Department  Not Found'
             ], 404);
         }
 
-        $department->deleted();
+        $department->delete();
         return Response([
             "message" => 'Department deleted',
             "data" => $department

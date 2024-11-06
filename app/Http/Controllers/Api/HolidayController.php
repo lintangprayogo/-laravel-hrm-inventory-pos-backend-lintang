@@ -41,6 +41,7 @@ class HolidayController extends Controller
         $holiday->year = $request->year;
         $holiday->date = $request->date;
         $holiday->is_weekend = $request->is_weekend;
+        $holiday->created_by = $request->user()->id;
         $holiday->save();
 
         return Response([
@@ -67,7 +68,7 @@ class HolidayController extends Controller
 
     public function update(Request $request)
     {
-        $holiday =  Holiday::find("id", $request->Holiday_id);
+        $holiday =  Holiday::find( $request->Holiday_id,"id");
         if (!$holiday) {
             return Response([
                 "message" => 'Holiday Not Found'
@@ -78,7 +79,6 @@ class HolidayController extends Controller
         $holiday->year = $request->year;
         $holiday->date = $request->date;
         $holiday->is_weekend = $request->is_weekend;
-        $holiday->save();
         $holiday->save();
 
         return Response([

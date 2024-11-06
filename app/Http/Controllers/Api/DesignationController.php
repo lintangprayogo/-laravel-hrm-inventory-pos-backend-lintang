@@ -50,7 +50,7 @@ class DesignationController extends Controller
 
     public function show($id)
     {
-        $designation =  designation::find("id", $id);
+        $designation =  designation::find($id, "id");
         if (!$designation) {
             return Response([
                 "message" => 'designation Not Found'
@@ -65,7 +65,7 @@ class DesignationController extends Controller
 
     public function update(Request $request)
     {
-        $designation =  designation::find("id", $request->designation_id);
+        $designation =  designation::find($request->designation_id, "id");
         if (!$designation) {
             return Response([
                 "message" => 'designation Not Found'
@@ -87,14 +87,14 @@ class DesignationController extends Controller
 
     public function destroy($id)
     {
-        $designation =  designation::find("id", $id);
+        $designation =  designation::find($id, "id");
         if (!$designation) {
             return Response([
                 "message" => 'designation  Not Found'
             ], 404);
         }
 
-        $designation->deleted();
+        $designation->delete();
         return Response([
             "message" => 'designation deleted',
             "data" => $designation
