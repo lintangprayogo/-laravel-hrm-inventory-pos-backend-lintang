@@ -10,17 +10,19 @@ use App\Http\Controllers\Api\LeaveTypeController;
 use App\Http\Controllers\Api\PayrollController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\ShiftController;
-use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\Api\DepartmentController;
 use App\Models\Designation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+Route::post("/login",[AuthController::class,'login']);
+Route::post("/login",[AuthController::class,'login']);
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post("/login",[AuthController::class,'login']);
-Route::post("/logout",[AuthController::class,'logout'])->middleware('auth:sanctum');
+Route::post("/logoutt",[AuthController::class,'logout'])->middleware('auth:sanctum');
 
 Route::apiResource("/roles",RoleController::class)->middleware('auth:sanctum');
 
