@@ -36,6 +36,7 @@ class DesignationController extends Controller
 
         $designation->company_id = 1;
         $designation->name = $request->name;
+        $designation->description  = $request->description;
         $designation->created_by = $user->id;
         $designation->save();
 
@@ -48,7 +49,7 @@ class DesignationController extends Controller
 
     public function show($id)
     {
-        $designation =  designation::find($id);
+        $designation =  Designation::find($id);
         if (!$designation) {
             return Response([
                 "message" => 'designation Not Found'
@@ -63,7 +64,7 @@ class DesignationController extends Controller
 
     public function update(Request $request)
     {
-        $designation =  designation::find($request->id);
+        $designation =  Designation::find($request->id);
         if (!$designation) {
             return Response([
                 "message" => 'designation Not Found'
@@ -84,7 +85,7 @@ class DesignationController extends Controller
 
     public function destroy($id)
     {
-        $designation =  designation::find($id);
+        $designation =  Designation::find($id);
         if (!$designation) {
             return Response([
                 "message" => 'designation  Not Found'
