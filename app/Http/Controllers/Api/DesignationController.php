@@ -28,7 +28,6 @@ class DesignationController extends Controller
         ]);
 
         $request->validate([
-            'department_id' => 'required',
             'name' => 'required',
         ]);
 
@@ -50,7 +49,7 @@ class DesignationController extends Controller
 
     public function show($id)
     {
-        $designation =  designation::find($id, "id");
+        $designation =  designation::find($id);
         if (!$designation) {
             return Response([
                 "message" => 'designation Not Found'
@@ -65,7 +64,7 @@ class DesignationController extends Controller
 
     public function update(Request $request)
     {
-        $designation =  designation::find($request->designation_id, "id");
+        $designation =  designation::find($request->designation_id);
         if (!$designation) {
             return Response([
                 "message" => 'designation Not Found'
@@ -87,7 +86,7 @@ class DesignationController extends Controller
 
     public function destroy($id)
     {
-        $designation =  designation::find($id, "id");
+        $designation =  designation::find($id);
         if (!$designation) {
             return Response([
                 "message" => 'designation  Not Found'
