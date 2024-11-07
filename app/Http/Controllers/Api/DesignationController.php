@@ -63,7 +63,7 @@ class DesignationController extends Controller
 
     public function update(Request $request)
     {
-        $designation =  designation::find($request->designation_id);
+        $designation =  designation::find($request->id);
         if (!$designation) {
             return Response([
                 "message" => 'designation Not Found'
