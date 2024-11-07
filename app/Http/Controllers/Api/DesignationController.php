@@ -35,7 +35,6 @@ class DesignationController extends Controller
         $user = $request->user();
 
         $designation->company_id = 1;
-        $designation->department_id = $request->department_id;
         $designation->name = $request->name;
         $designation->created_by = $user->id;
         $designation->save();
@@ -71,7 +70,6 @@ class DesignationController extends Controller
             ], 404);
         }
 
-        $designation->department_id = $request->department_id;
         $designation->name = $request->name;
         $designation->description = $request->description;
         $designation->save();
