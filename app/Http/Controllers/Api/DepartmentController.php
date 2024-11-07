@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
@@ -29,6 +30,7 @@ class DepartmentController extends Controller
         $department =  new  Department();
         $department->company_id = 1;
         $department->name =  $request->name;
+        $department->description = $request->description;
         $department->created_by = $request->user()->id;
         $department->save();
 
@@ -56,13 +58,14 @@ class DepartmentController extends Controller
 
     public function update(Request $request)
     {
-        $department =  Department::find( $request->id);
+        $department =  Department::find($request->id);
         if (!$department) {
             return Response([
-                "message" => 'Department Not Found'
+                "message" => 'Department Not Found'.$request->id
             ], 404);
         }
         $department->name =  $request->name;
+        $department->description = $request->description;
         $department->save();
 
         return Response([
