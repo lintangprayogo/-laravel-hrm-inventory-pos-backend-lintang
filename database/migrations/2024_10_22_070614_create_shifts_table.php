@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('late_mark_after')->nullable();
             $table->integer('early_clock_in_time')->nullable();
             $table->integer('allow_clock_out_till')->nullable();
-            $table->boolean("isSelfClocking")->default(false);
+            $table->boolean("is_self_clocking")->default(false);
             $table->timestamps();
         });
     }
