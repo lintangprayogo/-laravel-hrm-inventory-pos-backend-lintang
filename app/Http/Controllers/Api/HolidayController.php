@@ -97,7 +97,7 @@ class HolidayController extends Controller
             ], 404);
         }
 
-        $Holiday->deleted();
+        $Holiday->delete();
         return Response([
             "message" => 'Holiday deleted',
             "data" => $Holiday
