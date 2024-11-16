@@ -12,8 +12,12 @@ class Shift extends Model
         "clock_in_time",
         "clock_out_time",
         "name",
-        "isSelfClocking",
+        "is_self_clocking",
         "early_clock_in_time",
         "allow_clock_out_till"
+    ];
+
+    protected $casts = [
+        'is_self_clocking' => 'boolean',
     ];
 }
