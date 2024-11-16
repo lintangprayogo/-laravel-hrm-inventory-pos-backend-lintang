@@ -15,4 +15,8 @@ class Holiday extends Model
         'is_weekend',
         'created_by',
     ];
+
+    protected $casts = [
+        'is_weekend' => 'boolean',
+    ];
 }
