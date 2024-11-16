@@ -68,7 +68,7 @@ class HolidayController extends Controller
 
     public function update(Request $request)
     {
-        $holiday =  Holiday::find( $request->Holiday_id,"id");
+        $holiday =  Holiday::find($request->id);
         if (!$holiday) {
             return Response([
                 "message" => 'Holiday Not Found'
@@ -90,7 +90,7 @@ class HolidayController extends Controller
 
     public function destroy($id)
     {
-        $Holiday =  Holiday::find("id", $id);
+        $Holiday =  Holiday::find($id);
         if (!$Holiday) {
             return Response([
                 "message" => 'Holiday  Not Found'
