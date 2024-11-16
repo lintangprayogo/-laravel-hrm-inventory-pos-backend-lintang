@@ -39,6 +39,7 @@ class ShiftController extends Controller
         $shift->late_mark_after = $request->late_mark_after;
         $shift->early_clock_in_time = $request->early_clock_in_time;
         $shift->allow_clock_out_till = $request->allow_clock_out_till;
+        $shift->is_self_clocking = $request->is_self_clocking;
         $shift->save();
 
         return response([
@@ -86,6 +87,7 @@ class ShiftController extends Controller
         $shift->late_mark_after = $request->late_mark_after;
         $shift->early_clock_in_time = $request->early_clock_in_time;
         $shift->allow_clock_out_till = $request->allow_clock_out_till;
+        $shift->is_self_clocking = $request->is_self_clocking;
         $shift->save();
 
         return response([
