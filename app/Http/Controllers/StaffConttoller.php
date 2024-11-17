@@ -13,11 +13,13 @@ class StaffConttoller extends Controller
     {
         $roles =  DB::table("users")->select(
             "users.name",
-            "shifts.name as shift_name",
+            "shifts.name as shift",
             "users.status",
             "users.email",
-            "departments.name as department_name",
-            "designations.name as designation_name"
+            "users.username",
+            "users.profile_image",
+            "departments.name as department",
+            "designations.name as designation"
         )
             ->leftJoin(
                 'designations',
