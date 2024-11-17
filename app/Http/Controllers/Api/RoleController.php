@@ -31,7 +31,7 @@ class RoleController extends Controller
         $role =  new  Role();
         $role->company_id = 1;
         $role->name =  $request->name;
-        $role->display_name = $request->display_name;
+        $role->display_name = $request->name;
         $role->description = $request->description;
         $role->save();
 
