@@ -16,10 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-
-
         $this->call([
             CompanySeeder::class,
             RoleSeeder::class,
@@ -35,7 +31,8 @@ class DatabaseSeeder extends Seeder
             LeaveTypeSeeder::class,
             LeaveSeeder::class,
             AttendanceSeeder::class,
-            PayrollSeeder::class
+            PayrollSeeder::class,
+            UpdateUserSeeder::class
         ]);
     }
 }

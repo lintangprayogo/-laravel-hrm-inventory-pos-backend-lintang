@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\LeaveTypeController;
 use App\Http\Controllers\Api\PayrollController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\ShiftController;
+use App\Http\Controllers\StaffConttoller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ Route::apiResource("/roles",RoleController::class)->middleware('auth:sanctum');
 
 Route::apiResource("/departments",DepartmentController::class)->middleware('auth:sanctum');
 
-Route::apiResource("/companies",CompanyController::class)->middleware('auth:sanctum');
+Route::apiResource("/company",CompanyController::class)->middleware('auth:sanctum');
 
 Route::apiResource("/designations",DesignationController::class)->middleware('auth:sanctum');
 
@@ -47,3 +48,5 @@ Route::apiResource('/attendances', AttendanceController::class)->middleware('aut
 
 //payrolls
 Route::apiResource('/payrolls', PayrollController::class)->middleware('auth:sanctum');
+
+Route::get("/staff",[StaffConttoller::class,'index']);
