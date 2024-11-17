@@ -49,4 +49,4 @@ Route::apiResource('/attendances', AttendanceController::class)->middleware('aut
 //payrolls
 Route::apiResource('/payrolls', PayrollController::class)->middleware('auth:sanctum');
 
-Route::get("/staff",[StaffConttoller::class,'index']);
+Route::get("/staffs",[StaffConttoller::class,'index'])->middleware('auth:sanctum');
