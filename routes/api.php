@@ -12,7 +12,7 @@ use App\Http\Controllers\Api\LeaveTypeController;
 use App\Http\Controllers\Api\PayrollController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\ShiftController;
-use App\Http\Controllers\StaffConttoller;
+use App\Http\Controllers\Api\StaffConttoller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
