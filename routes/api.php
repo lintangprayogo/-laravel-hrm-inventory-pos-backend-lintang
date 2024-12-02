@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AttendanceController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BasicSalaryController;
 use App\Http\Controllers\api\CompanyController;
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\DepartmentController;
 use App\Http\Controllers\Api\DesignationController;
 use App\Http\Controllers\Api\HolidayController;
@@ -49,4 +50,10 @@ Route::apiResource('/attendances', AttendanceController::class)->middleware('aut
 //payrolls
 Route::apiResource('/payrolls', PayrollController::class)->middleware('auth:sanctum');
 
+//staffs
 Route::get("/staffs",[StaffConttoller::class,'index'])->middleware('auth:sanctum');
+
+//dashboard
+Route::get('/dashboard/today-summary', [DashboardController::class, 'getTodaySummary'])->middleware('auth:sanctum');
+Route::get('/dashboard/today-attendance', [DashboardController::class, 'getAllTodayAttendance'])->middleware('auth:sanctum');
+Route::get('/dashboard/pending-leave', [DashboardController::class, 'getAllPendingLeave'])->middleware('auth:sanctum');
