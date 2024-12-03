@@ -13,7 +13,7 @@ use App\Http\Controllers\Api\LeaveTypeController;
 use App\Http\Controllers\Api\PayrollController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\ShiftController;
-use App\Http\Controllers\Api\StaffConttoller;
+use App\Http\Controllers\Api\StaffController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -51,7 +51,8 @@ Route::apiResource('/attendances', AttendanceController::class)->middleware('aut
 Route::apiResource('/payrolls', PayrollController::class)->middleware('auth:sanctum');
 
 //staffs
-Route::get("/staffs",[StaffConttoller::class,'index'])->middleware('auth:sanctum');
+Route::get("/staffs",[StaffController::class,'index'])->middleware('auth:sanctum');
+Route::post("/staffs",[StaffController::class,'store'])->middleware('auth:sanctum');
 
 //dashboard
 Route::get('/dashboard/today-summary', [DashboardController::class, 'getTodaySummary'])->middleware('auth:sanctum');
